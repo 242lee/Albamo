@@ -2,12 +2,9 @@
 H, W, N, M = map(int, input().split())
 
 rowCnt = (H + N) // (N + 1) # 행
-print(f"{rowCnt} = ({H} + {N}) // ({N} + 1) ")
 colCnt = (W + M) // (M + 1) # 열
-print(f"{colCnt} = ({W} + {M}) // ({M} + 1) ")
 
 # 총 배치 가능한 사람의 수
 maxCnt = rowCnt * colCnt
-print(f"{maxCnt} = {rowCnt} * {colCnt}")
 
 print(maxCnt)
