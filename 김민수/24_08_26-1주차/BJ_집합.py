@@ -49,5 +49,3 @@ for _ in range(M):
 
     elif plus[0] == 'empty':
         S.clear()
-
-
