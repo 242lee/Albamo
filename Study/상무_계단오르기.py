@@ -16,4 +16,3 @@ for i in range(3, n):
 answer = dp.pop()
 
 print(answer)
-
