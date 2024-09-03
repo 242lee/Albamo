@@ -35,8 +35,8 @@ SW 역량테스트 준비를 위한 문제집을 수록할 예정입니다!
 
 ### 📆 일정표
 
-|       **일정**        | **출제자** | **설명** | **문제1**                                                                                       | **문제2**                                                                                                |
-| :-------------------: | :--------: | :------: | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 1주차 (08.26 ~ 09.01) |   김호진   |  재활1   | [ZOAC 4](https://www.acmicpc.net/problem/23971) / [집합](https://www.acmicpc.net/problem/11723) | [삼각현과 세 변](https://www.acmicpc.net/problem/5073) / [돌 게임](https://www.acmicpc.net/problem/9655) |
-| 2주차 (09.02 ~ 09.08) |   문재성   | 재활일까? | [문서검색](https://www.acmicpc.net/problem/1543) / [계단오르기](https://www.acmicpc.net/problem/2579) | [N번째큰수](https://www.acmicpc.net/problem/2075) / [나무자르기](https://www.acmicpc.net/problem/2805) |
-| 3주차 (09.09 ~ 09.15) |   이상무   | 재밌겠지 | [상금 헌터](https://www.acmicpc.net/problem/15953) / [로그프레소 마에스트로](https://www.acmicpc.net/problem/31937) | [죽음의 등굣길](https://www.acmicpc.net/problem/31937) / [Yunny's Trip](https://www.acmicpc.net/problem/31885) | 
+|       **일정**        | **출제자** | **설명**  | **문제1**                                                                                                           | **문제2**                                                                                                      |
+| :-------------------: | :--------: | :-------: | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 1주차 (08.26 ~ 09.01) |   김호진   |   재활1   | [ZOAC 4](https://www.acmicpc.net/problem/23971) / [집합](https://www.acmicpc.net/problem/11723)                     | [삼각현과 세 변](https://www.acmicpc.net/problem/5073) / [돌 게임](https://www.acmicpc.net/problem/9655)       |
+| 2주차 (09.02 ~ 09.08) |   문재성   | 재활일까? | [문서검색](https://www.acmicpc.net/problem/1543) / [계단오르기](https://www.acmicpc.net/problem/2579)               | [N번째큰수](https://www.acmicpc.net/problem/2075) / [나무자르기](https://www.acmicpc.net/problem/2805)         |
+| 3주차 (09.09 ~ 09.15) |   이상무   | 재밌겠지  | [상금 헌터](https://www.acmicpc.net/problem/15953) / [로그프레소 마에스트로](https://www.acmicpc.net/problem/31937) | [죽음의 등굣길](https://www.acmicpc.net/problem/31946) / [Yunny's Trip](https://www.acmicpc.net/problem/31885) |
