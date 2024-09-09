@@ -5,32 +5,32 @@ for i in range(T):
 
     # 1회 상금계산
     if a == 0:
-        pass
+        reward += 0
     elif a == 1:
         reward += 500
-    elif a <= 3:
+    elif a <= 1 + 2:
         reward += 300
-    elif a <= 6:
+    elif a <= 1 + 2 + 3:
         reward += 200
-    elif a <= 10:
+    elif a <= 1 + 2 + 3 + 4:
         reward += 50
-    elif a <= 15:
+    elif a <=  1 + 2 + 3 + 4 + 5:
         reward += 30
-    elif a <= 21:
+    elif a <=  1 + 2 + 3 + 4 + 5 + 6:
         reward += 10
 
     # 2회 상금계산
     if b == 0:
-        pass
+        reward += 0
     elif b == 1:
         reward += 512
-    elif b <= 3:
+    elif b <= 1 + 2:
         reward += 256
-    elif b <= 7:
+    elif b <= 1 + 2 + 4:
         reward += 128
-    elif b <= 15:
+    elif b <= 1 + 2 + 4 + 8:
         reward += 64
-    elif b <= 31:
+    elif b <= 1 + 2 + 4 + 8 + 16:
         reward += 32
 
     print(reward*10000)
