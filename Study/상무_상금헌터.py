@@ -9,7 +9,7 @@ for _ in range(int(input())):
     first_rank, second_rank = map(int, input().split())
     first_prize_list = [0, 5000000, 3000000, 2000000, 500000, 300000, 100000]
     if 0 < first_rank < 22:
-        first_num = int(math.ceil( -1 + math.sqrt(1 + 8 * first_rank)) / 2)
+        first_num = int(math.ceil(( -1 + math.sqrt(1 + 8 * first_rank)) / 2))
         first_prize = first_prize_list[first_num]
     else:
         first_prize = 0
@@ -19,6 +19,8 @@ for _ in range(int(input())):
     else:
         second_prize = 0
 
+    result = first_prize + second_prize
+    print(type(result))
     print(first_prize + second_prize)
 
 # 왜 틀린지 모르겠음
