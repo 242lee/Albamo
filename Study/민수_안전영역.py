@@ -1,19 +1,28 @@
-# DFS로 연결된 영역을 탐색하는 함수
-def dfs(x, y, h, visited, graph):
+from collections import deque  # 큐를 사용하기 위해 deque 모듈을 불러옵니다
+
+# BFS로 연결된 영역을 탐색하는 함수
+def bfs(x, y, h, visited, graph):
     # 상하좌우 이동을 위한 좌표 변화량
     dx = [-1, 1, 0, 0]
     dy = [0, 0, -1, 1]
     
+    # BFS 탐색을 위한 큐 초기화
+    queue = deque()
+    queue.append((x, y))  # 시작 좌표를 큐에 삽입
     visited[x][y] = True  # 현재 좌표 방문 처리
     
-    # 상하좌우로 이동하며 탐색
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
+    while queue:
+        x, y = queue.popleft()  # 큐에서 좌표를 꺼냅니다
         
-        # 지도 내에 있고, 아직 방문하지 않았으며, 물에 잠기지 않은 경우에만 탐색
-        if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and graph[nx][ny] > h:
-            dfs(nx, ny, h, visited, graph)
+        # 상하좌우로 이동하며 탐색
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            
+            # 지도 내에 있고, 아직 방문하지 않았으며, 물에 잠기지 않은 경우에만 탐색
+            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and graph[nx][ny] > h:
+                visited[nx][ny] = True  # 방문 처리
+                queue.append((nx, ny))  # 탐색할 좌표를 큐에 추가
 
 # 입력 처리
 n = int(input())  # 지도의 크기 입력
@@ -33,9 +42,9 @@ for h in range(min_height - 1, max_height + 1):
     # 지도의 모든 좌표를 탐색
     for i in range(n):
         for j in range(n):
-            # 아직 방문하지 않았고, 물에 잠기지 않은 영역을 찾으면 DFS로 연결된 영역을 탐색
+            # 아직 방문하지 않았고, 물에 잠기지 않은 영역을 찾으면 BFS로 연결된 영역을 탐색
             if not visited[i][j] and graph[i][j] > h:
-                dfs(i, j, h, visited, graph)
+                bfs(i, j, h, visited, graph)
                 safe_areas += 1  # 탐색을 마친 하나의 안전 영역을 카운트
     
     # 현재 비의 높이에서 구한 안전 영역 개수와 최대값을 비교해 갱신
