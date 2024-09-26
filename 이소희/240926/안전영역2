@@ -9,16 +9,16 @@ road = [list(map(int, input().split())) for _ in range(N)]
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
-def bfs(x, y, h, visited):
-    queue = deque([(x, y)])
-    visited[x][y] = True
+def bfs(i, j, h, visited):
+    queue = deque([(i, j)])
+    visited[i][j] = True
     while queue:
-        cx, cy = queue.popleft()
+        i, j = queue.popleft()
         for i in range(4):
-            nx, ny = cx + dx[i], cy + dy[i]
-            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny] and road[nx][ny] > h:
-                visited[nx][ny] = True
-                queue.append((nx, ny))
+            ni, nj = i + di[i], j + dj[i]
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj] and road[ni][nj] > h:
+                visited[ni][nj] = True
+                queue.append((ni, nj))
 
 maxSafeZone = 0
 maxHeight = max(map(max, road)) 
