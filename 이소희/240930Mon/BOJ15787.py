@@ -11,7 +11,7 @@
 N, M = map(int, input().split())
 orders = [list(map(int, input().split())) for _ in range(M)]
 
-trains = [[0] * 20 for _ in range(N + 1)]
+trains = [[0] * 20 for _ in range(N)]
 
 for order in orders:
     train_id = order[1] - 1 
