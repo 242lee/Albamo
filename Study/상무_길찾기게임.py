@@ -7,6 +7,8 @@
 # root보다 x가 낮고 y가 가장 높은 노드 = node_now => 왼쪽 tree (append)
 # if node_now보다 x가 낮은 노드가 없으면 .. 
 
+# 3. 그냥 y가 가장높은값을 뽑아서 그 값을 기준으로 왼쪽 오른쪽 나눠서 쭉쭉 내려가면 될듯
+
 import sys; sys.setrecursionlimit(10001)
 
 def solution(nodeinfo):
