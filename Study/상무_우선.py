@@ -20,8 +20,8 @@ def solution(operations):
                 queue.sort(reverse=True)
                 queue.pop()
     
-        if not queue:
-            queue = [0, 0]
+    if not queue:
+        queue = [0, 0]
 
     return [max(queue), min(queue)]
 
