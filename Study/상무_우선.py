@@ -9,7 +9,7 @@ def solution(operations):
         action, number = map(str, operate.split())
         if action == "I":
             queue.append(int(number))
-      
+        
         else:
             if not queue:
                 continue
