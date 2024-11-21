@@ -6,7 +6,7 @@ from collections import deque
 N, W, L = map(int, input().split())
 trucks = list(map(int, input().split()))
 
-ing = deque([-1] * W)
+ing = deque([-1] * W) # 다리 위에 건너가는 중인 트럭 배열 (순서대로)
 visited = [0] * N # 종료조건
 muge = 0  # 다리 위 트럭들의 하중
 time = 0   # 시간초
