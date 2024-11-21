@@ -1,53 +1,54 @@
 # 백준 16918 봄버맨 실버1
-from collections import deque
 import sys
 input = sys.stdin.readline
 
 # 1 ~ 200
 R, C, N = map(int, input().split())
-
 arr = [list(input().strip()) for _ in range(R)]
 
-dq = deque()
 
-for i in range(R):
-    for j in range(C):
-        if arr[i][j] == 'O':
-            arr[i][j] = 0
-            dq.append([i, j, 0])
+def solution():
+    # 1. N == 1일 때: 초기 상태 그대로 출력
+    if N == 1:
+        return arr
 
-dx = (1, 0, -1, 0)
-dy = (0, 1, 0, -1)
+    # 2. N % 2 == 0일 때: 모든 칸에 폭탄이 있는 상태
+    if N % 2 == 0:
+        return [['O'] * C for _ in range(R)]
 
-for sec in range(2, N+1):
-    # 짝수 초에는 폭탄 추가
-    if sec % 2 == 0:
-        for i in range(R):
-            for j in range(C):
-                if arr[i][j] == '.':
-                    arr[i][j] = sec
-                    dq.append([i, j, sec])
-    
-    # 홀수 초에는 KA-BOOM
-    else:
-        while dq and dq[0][2] == sec - 3:
-            # 심어둔 폭탄 터트릴 준비
-            i, j, t = dq.popleft()
-            # 실제로 심어져 있으면 KA-BOOM
-            if arr[i][j] == sec - 3:
-                arr[i][j] = '.'
-                # 사방 폭탄 파괴
-                for d in range(4):
-                    ni = i + dx[d]
-                    nj = j + dy[d]
-                    # 이번에 터트려야할 폭탄이 아니면 파괴
-                    if 0 <= ni < R and 0 <= nj < C and arr[ni][nj] != '.' and arr[ni][nj] != sec - 3 :
-                        arr[ni][nj] = '.'
+    # 초기 폭탄 위치 탐색
+    first_bombs = find_bombs(arr)
 
-for i in range(R):
-    for j in range(C):
-        if arr[i][j] == '.':
-            print('.', end='')
-        else:
-            print('O', end='')
-    print()
+    # 3. N % 4 == 3일 때: 초기 폭탄 터진 상태
+    if N % 4 == 3:
+        return explosion(first_bombs)
+
+    # 4. N > 1이고 N % 4 == 1일 때: 두 번째 폭발 후 상태
+    if N % 4 == 1:
+        # 첫 폭발 이후 남은 폭탄들이 두 번째 터질 폭탄들임
+        after_first_explosion_arr = explosion(first_bombs)
+        second_bombs = find_bombs(after_first_explosion_arr)
+        return explosion(second_bombs)
+
+def find_bombs(arr):
+    bombs = []
+    for i in range(R):
+        for j in range(C):
+            if arr[i][j] == 'O':
+                bombs.append((i, j))
+    return bombs
+
+def explosion(bombs):
+    ans = [['O'] * C for _ in range(R)]
+    for x, y in bombs:
+        ans[x][y] = '.'
+        for dx, dy in ((1, 0), (0, 1), (-1, 0), (0, -1)):
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < R and 0 <= ny < C:
+                ans[nx][ny] = '.'
+    return ans
+
+# 출력
+ans = solution()
+for row in ans:
+    print(*row, sep='')
