@@ -60,15 +60,30 @@ function levelTest(diffs, times, level, limit) {
 
 function solution(diffs, times, limit) {
   // level을 높이며 확인하는 과정을 거칠 것이다.
-  let isEnd = false;
-  let level = 1
-  while (isEnd === false) {
-    isEnd = levelTest(diffs, times, level, limit)
-    if (typeof isEnd === 'number') {
-      return isEnd;
+  let minLev = 1;
+  // 런타임 에러 발생할 수 있음. Math.max에 들어가는 값이 크다면
+  // 배열의 크기가 크다면 배열 연산자의 사용을 조심해야 한다.
+  let maxLev = -1;
+  for (diff of diffs) {
+    if (maxLev < diff) {
+      maxLev = diff
     }
-    level ++
   }
+  let ans = maxLev
+
+  while (maxLev >= minLev) {
+    const level = Math.floor((minLev + maxLev) / 2)
+    const returnValue = levelTest(diffs, times, level, limit)
+    if (typeof returnValue === 'number') {
+      // 이 경우 연산이 되었단 말이니, 레벨을 낮출 필요성이 있다.
+      ans = level
+      maxLev = level - 1
+    }
+    else {
+      minLev = level + 1
+    }
+  }
+  return ans
 }
 
 const ans = solution(diffs, times, limit)
